@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "../questionmarks.jpeg";
 
-function LocationPage(props) {
+function LocationPage() {
 	return (
-		<div>
+		<div class="location_page column_center">
 			<h1>Where is FAC today?</h1>
-			<form>
+			<form class="column_center">
 				<label htmlFor="bgSearch"></label>
 				<input
 					name="bgSearch"
