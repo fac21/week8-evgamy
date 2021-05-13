@@ -31,34 +31,62 @@ function HungryFAC(props) {
 
   return (
     <div className="hungryfac_page">
-      {/* <img src="logo"> */}
-      <form
-        className="column_center"
-        onSubmit={(event) => event.preventDefault()}
-      >
-        <label htmlFor="chooseFood"></label>
-        <input
-          list="foods"
-          name="chooseFood"
-          id="chooseFood"
-          onSelect={handleSelect}
-        />
-        <datalist id="foods">
-          <option value="Pizza" />
-          <option value="Burger" />
-          <option value="Avocado Toast" />
-          <option value="Cake" />
-          <option value="Bagel" />
-        </datalist>
-        <button type="submit">Enter</button>
-        {/* <img src="food image"> */}
-      </form>
-      <div className="members">
-        <div className="oli"></div>
-        <div className="dan"></div>
-        <div className="yvonne"></div>
-        <div className="gregor"></div>
-        <div className="oliver"></div>
+      <div className="column_center ">
+        <img src="../images/PizzaCheeseTransparent.png" />
+
+        <form
+          className="column_center "
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label htmlFor="chooseFood"></label>
+          <input
+            list="foods"
+            name="chooseFood"
+            id="chooseFood"
+            onSelect={handleSelect}
+          />
+          <datalist id="foods">
+            <option value="Pizza" />
+            <option value="Burger" />
+            <option value="Avocado Toast" />
+            <option value="Cake" />
+            <option value="Bagel" />
+          </datalist>
+          <button type="submit">Enter</button>
+          {/* <img src="food image"> */}
+        </form>
+        <div className="members flexwrap">
+          <div className="oli">
+            <img
+              className="memberImage"
+              src="../images/PizzaCheeseTransparent.png"
+            />
+          </div>
+          <div className="dan">
+            <img
+              className="memberImage"
+              src="../images/PizzaCheeseTransparent.png"
+            />
+          </div>
+          <div className="yvonne">
+            <img
+              className="memberImage"
+              src="../images/PizzaCheeseTransparent.png"
+            />
+          </div>
+          <div className="gregor">
+            <img
+              className="memberImage"
+              src="../images/PizzaCheeseTransparent.png"
+            />
+          </div>
+          <div className="oliver">
+            <img
+              className="memberImage"
+              src="../images/PizzaCheeseTransparent.png"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
