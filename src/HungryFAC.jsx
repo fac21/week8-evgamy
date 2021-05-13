@@ -65,7 +65,7 @@ function HungryFAC(props) {
 	return (
 		<div className="hungryfac_page">
 			<div className="column_center ">
-				<img src="/PizzaCheeseTransparent.png" />
+				<img src="/catTransparent.png" />
 
 				<form
 					className="column_center "
@@ -90,31 +90,31 @@ function HungryFAC(props) {
 				</form>
 				<div className="members flexwrap">
 					<div className="oli">
-						<img className="memberImage" src="/PizzaCheeseTransparent.png" />
+						<img className="memberImage" src="/catTransparent.png" />
 						<div>
 							<ProgressBar percentage={oliHealth} />
 						</div>
 					</div>
 					<div className="dan">
-						<img className="memberImage" src="/PizzaCheeseTransparent.png" />
+						<img className="memberImage" src="/catTransparent.png" />
 						<div>
 							<ProgressBar percentage={danHealth} />
 						</div>
 					</div>
 					<div className="yvonne">
-						<img className="memberImage" src="/PizzaCheeseTransparent.png" />
+						<img className="memberImage" src="/catTransparent.png" />
 						<div>
 							<ProgressBar percentage={yvonneHealth} />
 						</div>
 					</div>
 					<div className="gregor">
-						<img className="memberImage" src="/PizzaCheeseTransparent.png" />
+						<img className="memberImage" src="/catTransparent.png" />
 						<div>
 							<ProgressBar percentage={gregorHealth} />
 						</div>
 					</div>
 					<div className="oliver">
-						<img className="memberImage" src="/PizzaCheeseTransparent.png" />
+						<img className="memberImage" src="/catTransparent.png" />
 						<div>
 							<ProgressBar percentage={oliverHealth} />
 						</div>
