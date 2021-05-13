@@ -12,12 +12,17 @@ function HungryFAC(props) {
 	const [count, setCount] = React.useState(0);
 
 	setTimeout(() => {
-		setOliHealth(oliHealth - 3);
-		setYvonneHealth(yvonneHealth - 2);
-		setOliverHealth(oliverHealth - 0.5);
-		setDanHealth(danHealth - 5);
-		setGregorHealth(gregorHealth - 1);
+		setOliHealth(stopLosing(oliHealth, 3));
+		setYvonneHealth(stopLosing(yvonneHealth, 2));
+		setOliverHealth(stopLosing(oliverHealth, 0.2));
+		setDanHealth(stopLosing(danHealth, 5));
+		setGregorHealth(stopLosing(gregorHealth, 1));
+		console.log(oliverHealth, gregorHealth, danHealth);
 	}, 500);
+
+	function stopLosing(health, loss) {
+		return health <= 0 ? 0 : health - loss;
+	}
 
 	function handleSelect(e) {
 		let selectedFood = [];
