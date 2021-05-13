@@ -65,13 +65,13 @@ function HungryFAC(props) {
 	return (
 		<div className="hungryfac_page">
 			<div className="column_center ">
-				<img src="/catTransparent.png" />
+				<img src="/logo.png" class="fortyvh" />
 
 				<form
 					className="column_center "
 					onSubmit={(event) => event.preventDefault()}
 				>
-					<label htmlFor="chooseFood"></label>
+					<label htmlFor="chooseFood">Choose your snack!</label>
 					<input
 						list="foods"
 						name="chooseFood"
@@ -86,35 +86,35 @@ function HungryFAC(props) {
 						<option value="Bagel" />
 					</datalist>
 					{/* <button type="submit">Enter</button> */}
-					<img src={foodurl} />
+					<img src={foodurl} className="twentyvh" />
 				</form>
 				<div className="members flexwrap">
 					<div className="oli">
-						<img className="memberImage" src="/catTransparent.png" />
+						<img className="memberImage" src="/oliFace.png" />
 						<div>
 							<ProgressBar percentage={oliHealth} />
 						</div>
 					</div>
 					<div className="dan">
-						<img className="memberImage" src="/catTransparent.png" />
+						<img className="memberImage" src="/danFace.png" />
 						<div>
 							<ProgressBar percentage={danHealth} />
 						</div>
 					</div>
 					<div className="yvonne">
-						<img className="memberImage" src="/catTransparent.png" />
+						<img className="memberImage" src="/yvonne.png" />
 						<div>
 							<ProgressBar percentage={yvonneHealth} />
 						</div>
 					</div>
 					<div className="gregor">
-						<img className="memberImage" src="/catTransparent.png" />
+						<img className="memberImage" src="/gregor.png" />
 						<div>
 							<ProgressBar percentage={gregorHealth} />
 						</div>
 					</div>
 					<div className="oliver">
-						<img className="memberImage" src="/catTransparent.png" />
+						<img className="memberImage" src="/oliverFace.png" />
 						<div>
 							<ProgressBar percentage={oliverHealth} />
 						</div>

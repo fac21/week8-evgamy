@@ -39,6 +39,16 @@
 	width: auto;
 }
 
+.fortyvh {
+	height: 40vh;
+	width: auto;
+}
+
+.twentyvh {
+	height: 20vh;
+	width: auto;
+}
+
 img:hover {
 	/* Start the shake animation and make the animation last for 0.5 seconds */
 	animation: shake 0.5s;
@@ -84,9 +94,9 @@ img:hover {
 .progress-bar {
 	position: relative;
 	height: 20px;
-	width: 350px;
+	width: 150px;
 	border-radius: 50px;
-	border: 1px solid #333;
+	border: 3px solid #000;
 }
 
 .filler {
