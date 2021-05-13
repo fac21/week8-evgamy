@@ -11,13 +11,13 @@ function HungryFAC(props) {
 	const [gregorHealth, setGregorHealth] = React.useState(100);
 
 	setTimeout(() => {
-		setOliHealth(oliHealth - 10);
-		setYvonneHealth(yvonneHealth - 8);
-		setOliverHealth(oliverHealth - 5);
-		setDanHealth(danHealth - 20);
-		setGregorHealth(gregorHealth - 15);
+		setOliHealth(oliHealth - 3);
+		setYvonneHealth(yvonneHealth - 2);
+		setOliverHealth(oliverHealth - 0.5);
+		setDanHealth(danHealth - 5);
+		setGregorHealth(gregorHealth - 1);
 		console.log(oliHealth, oliverHealth, yvonneHealth, danHealth, gregorHealth);
-	}, 2500);
+	}, 500);
 
 	function handleSelect(e) {
 		let selectedFood = [];
@@ -44,6 +44,18 @@ function HungryFAC(props) {
 			})
 			.catch((error) => console.log(error));
 	}, []);
+
+	const ProgressBar = (props) => {
+		return (
+			<div className="progress-bar">
+				<Filler percentage={props.percentage} />
+			</div>
+		);
+	};
+
+	const Filler = (props) => {
+		return <div className="filler" style={{ width: `${props.percentage}%` }} />;
+	};
 
 	return (
 		<div className="hungryfac_page">
@@ -77,30 +89,45 @@ function HungryFAC(props) {
 							className="memberImage"
 							src="../images/PizzaCheeseTransparent.png"
 						/>
+						<div>
+							<ProgressBar percentage={oliHealth} />
+						</div>
 					</div>
 					<div className="dan">
 						<img
 							className="memberImage"
 							src="../images/PizzaCheeseTransparent.png"
 						/>
+						<div>
+							<ProgressBar percentage={danHealth} />
+						</div>
 					</div>
 					<div className="yvonne">
 						<img
 							className="memberImage"
 							src="../images/PizzaCheeseTransparent.png"
 						/>
+						<div>
+							<ProgressBar percentage={yvonneHealth} />
+						</div>
 					</div>
 					<div className="gregor">
 						<img
 							className="memberImage"
 							src="../images/PizzaCheeseTransparent.png"
 						/>
+						<div>
+							<ProgressBar percentage={gregorHealth} />
+						</div>
 					</div>
 					<div className="oliver">
 						<img
 							className="memberImage"
 							src="../images/PizzaCheeseTransparent.png"
 						/>
+						<div>
+							<ProgressBar percentage={oliverHealth} />
+						</div>
 					</div>
 				</div>
 			</div>
