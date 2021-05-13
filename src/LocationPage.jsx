@@ -1,12 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "../questionmarks.jpeg";
+import HungryFAC from "./HungryFAC";
 
-function LocationPage() {
+function LocationPage({ setSubmit, setBg }) {
 	return (
-		<div class="location_page column_center">
+		<div className="location_page column_center">
 			<h1>Where is FAC today?</h1>
-			<form class="column_center">
+			<form
+				className="column_center"
+				onSubmit={(event) => {
+					event.preventDefault();
+					setSubmit(true);
+					setBg(document.getElementById("bgSearch").value);
+				}}
+			>
 				<label htmlFor="bgSearch"></label>
 				<input
 					name="bgSearch"
@@ -19,5 +27,7 @@ function LocationPage() {
 		</div>
 	);
 }
+
+function changePage() {}
 
 export default LocationPage;

@@ -23,7 +23,10 @@ function HungryFAC(props) {
 	return (
 		<div className="hungryfac_page">
 			{/* <img src="logo"> */}
-			<form className="column_center">
+			<form
+				className="column_center"
+				onSubmit={(event) => event.preventDefault()}
+			>
 				<label htmlFor="chooseFood"></label>
 				<input
 					name="chooseFood"

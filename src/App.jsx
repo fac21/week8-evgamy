@@ -6,7 +6,17 @@ import "../questionmarks.jpeg";
 import HungryFAC from "./HungryFAC.jsx";
 
 function App() {
-	return <HungryFAC bg={"antarctica"} />;
+	const [submit, setSubmit] = useState(false);
+	const [bg, setBg] = useState("antarctica");
+	return (
+		<>
+			{!submit ? (
+				<LocationPage setSubmit={setSubmit} setBg={setBg} />
+			) : (
+				<HungryFAC bg={bg} />
+			)}
+		</>
+	);
 }
 
 export default App;
