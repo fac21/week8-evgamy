@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import foods from "./foods";
 
 function HungryFAC(props) {
+  const [foodurl, setFoodurl] = React.useState("");
+
   React.useEffect(() => {
     fetch(
       `https://api.unsplash.com/photos/random?query=${props.bg}&client_id=${
@@ -21,14 +23,13 @@ function HungryFAC(props) {
       .catch((error) => console.log(error));
   }, []);
 
-  const handleSelect = (e) => {
-    const [value, setValue] = React.useState("");
-    setValue(e.target.value);
-    console.log(value);
-    const foodImage = foods.map((food) => <img key={food} src="" />);
-    return foodImage;
-  };
-
+  function handleSelect(e) {
+    const filteredFoods = foods.filter((food) => {
+      food.id === e.target.value;
+    });
+    console.log(filteredFoods);
+    setFoodurl(food.img_url);
+  }
   return (
     <div className="hungryfac_page">
       <div className="column_center ">
@@ -43,7 +44,7 @@ function HungryFAC(props) {
             list="foods"
             name="chooseFood"
             id="chooseFood"
-            onSelect={handleSelect}
+            onSelect={handleSelect()}
           />
           <datalist id="foods">
             <option value="Pizza" />
@@ -52,8 +53,8 @@ function HungryFAC(props) {
             <option value="Cake" />
             <option value="Bagel" />
           </datalist>
-          <button type="submit">Enter</button>
-          {/* <img src="food image"> */}
+          {/* <button type="submit">Enter</button> */}
+          <img src={foodurl} />
         </form>
         <div className="members flexwrap">
           <div className="oli">
