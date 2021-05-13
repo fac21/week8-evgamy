@@ -24,11 +24,11 @@ function HungryFAC(props) {
   }, []);
 
   function handleSelect(e) {
-    const filteredFoods = foods.filter((food) => {
-      food.id === e.target.value;
+    let selectedFood = [];
+    foods.forEach((food) => {
+      if (food.id === e.target.value) selectedFood.push(food.img_url);
     });
-    console.log(filteredFoods);
-    setFoodurl(food.img_url);
+    setFoodurl(selectedFood[0]);
   }
 
   const ProgressBar = (props) => {
@@ -66,7 +66,7 @@ function HungryFAC(props) {
             list="foods"
             name="chooseFood"
             id="chooseFood"
-            onSelect={handleSelect()}
+            onSelect={handleSelect}
           />
           <datalist id="foods">
             <option value="Pizza" />
