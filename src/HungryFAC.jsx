@@ -30,6 +30,28 @@ function HungryFAC(props) {
     console.log(filteredFoods);
     setFoodurl(food.img_url);
   }
+
+  const ProgressBar = (props) => {
+    return (
+      <div className="progress-bar">
+        <Filler percentage={props.percentage} />
+      </div>
+    );
+  };
+
+  const Filler = (props) => {
+    return <div className="filler" style={{ width: `${props.percentage}%` }} />;
+  };
+
+  function ProgressBarExample(props) {
+    const [percentage, setPercentage] = React.useState(60);
+    return (
+      <div>
+        <ProgressBar percentage={percentage} />
+      </div>
+    );
+  }
+
   return (
     <div className="hungryfac_page">
       <div className="column_center ">
