@@ -28,13 +28,15 @@ function HungryFAC(props) {
 				onSubmit={(event) => event.preventDefault()}
 			>
 				<label htmlFor="chooseFood"></label>
-				<input
-					name="chooseFood"
-					type="text"
-					id="chooseFood"
-					placeholder="Choose Food"
-				></input>
-				<button type="submit"></button>
+				<input list="foods" name="chooseFood" id="chooseFood" />
+				<datalist id="foods">
+					<option value="Pizza" />
+					<option value="Burger" />
+					<option value="Avocado Toast" />
+					<option value="Cake" />
+					<option value="Bagel" />
+				</datalist>
+				<button type="submit">Enter</button>
 				{/* <img src="food image"> */}
 			</form>
 			<div className="members">
