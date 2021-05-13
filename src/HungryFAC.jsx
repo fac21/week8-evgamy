@@ -4,6 +4,28 @@ import foods from "./foods";
 
 function HungryFAC(props) {
 	const [foodurl, setFoodurl] = React.useState("");
+	const [oliHealth, setOliHealth] = React.useState(100);
+	const [yvonneHealth, setYvonneHealth] = React.useState(100);
+	const [oliverHealth, setOliverHealth] = React.useState(100);
+	const [danHealth, setDanHealth] = React.useState(100);
+	const [gregorHealth, setGregorHealth] = React.useState(100);
+
+	setTimeout(() => {
+		setOliHealth(oliHealth - 10);
+		setYvonneHealth(yvonneHealth - 8);
+		setOliverHealth(oliverHealth - 5);
+		setDanHealth(danHealth - 20);
+		setGregorHealth(gregorHealth - 15);
+		console.log(oliHealth, oliverHealth, yvonneHealth, danHealth, gregorHealth);
+	}, 2500);
+
+	function handleSelect(e) {
+		let selectedFood = [];
+		foods.forEach((food) => {
+			if (food.id === e.target.value) selectedFood.push(food.img_url);
+		});
+		setFoodurl(selectedFood[0]);
+	}
 
 	React.useEffect(() => {
 		fetch(
@@ -22,14 +44,6 @@ function HungryFAC(props) {
 			})
 			.catch((error) => console.log(error));
 	}, []);
-
-	function handleSelect(e) {
-		let selectedFood = [];
-		foods.forEach((food) => {
-			if (food.id === e.target.value) selectedFood.push(food.img_url);
-		});
-		setFoodurl(selectedFood[0]);
-	}
 
 	return (
 		<div className="hungryfac_page">
