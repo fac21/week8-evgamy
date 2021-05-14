@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "../questionmarks.jpeg";
-import HungryFAC from "./HungryFAC";
+import HungryFAC from "./HungryFAC.jsx";
 
 function LocationPage({ setSubmit, setBg }) {
 	return (

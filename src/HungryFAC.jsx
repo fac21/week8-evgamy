@@ -14,61 +14,6 @@ function HungryFAC(props) {
 	let losingHealth;
 	let secondCount;
 
-	losingHealth = setTimeout(() => {
-		setOliHealth(stopLosing(oliHealth, 3));
-		setYvonneHealth(stopLosing(yvonneHealth, 2));
-		setOliverHealth(stopLosing(oliverHealth, 0.2));
-		setDanHealth(stopLosing(danHealth, 5));
-		setGregorHealth(stopLosing(gregorHealth, 1));
-	}, 1000);
-
-	secondCount = setTimeout(() => {
-		setCount(count + 1);
-	}, 1000);
-
-	if (
-		oliHealth == 0 ||
-		yvonneHealth == 0 ||
-		danHealth == 0 ||
-		oliverHealth == 0 ||
-		gregorHealth == 0
-	) {
-		clearTimeout(losingHealth);
-		clearTimeout(secondCount);
-	}
-
-	function stopLosing(health, loss) {
-		return health - loss <= 0 ? 0 : health - loss;
-	}
-
-	function handleSelect(e) {
-		let selectedFood = [];
-		foods.forEach((food) => {
-			if (food.id === e.target.value)
-				selectedFood.push(food.img_url, food.hunger);
-		});
-		setFoodurl(selectedFood[0]);
-		setFoodHealth(selectedFood[1]);
-	}
-
-	React.useEffect(() => {
-		fetch(
-			`https://api.unsplash.com/photos/random?query=${props.bg}&client_id=${
-				import.meta.env.VITE_APP_API_KEY
-			}&orientation=landscape`
-		)
-			.then((response) => {
-				if (!response.ok) throw new Error(response.status);
-				return response.json();
-			})
-			.then((data) => {
-				document.getElementsByClassName(
-					"hungryfac_page"
-				)[0].style.backgroundImage = `url(${data.urls.regular})`;
-			})
-			.catch((error) => console.log(error));
-	}, []);
-
 	const ProgressBar = (props) => {
 		return (
 			<div className="progress-bar">
@@ -101,10 +46,65 @@ function HungryFAC(props) {
 		return setGregorHealth(gregorHealth + foodHealth);
 	}
 
+	function stopLosing(health, loss) {
+		return health - loss <= 0 ? 0 : health - loss;
+	}
+
+	function handleSelect(e) {
+		let selectedFood = [];
+		foods.forEach((food) => {
+			if (food.id === e.target.value)
+				selectedFood.push(food.img_url, food.hunger);
+		});
+		setFoodurl(selectedFood[0]);
+		setFoodHealth(selectedFood[1]);
+	}
+
+	losingHealth = setTimeout(() => {
+		setOliHealth(stopLosing(oliHealth, 3));
+		setYvonneHealth(stopLosing(yvonneHealth, 2));
+		setOliverHealth(stopLosing(oliverHealth, 0.2));
+		setDanHealth(stopLosing(danHealth, 5));
+		setGregorHealth(stopLosing(gregorHealth, 1));
+	}, 1000);
+
+	secondCount = setTimeout(() => {
+		setCount(count + 1);
+	}, 1000);
+
+	if (
+		oliHealth == 0 ||
+		yvonneHealth == 0 ||
+		danHealth == 0 ||
+		oliverHealth == 0 ||
+		gregorHealth == 0
+	) {
+		clearTimeout(losingHealth);
+		clearTimeout(secondCount);
+	}
+
+	React.useEffect(() => {
+		fetch(
+			`https://api.unsplash.com/photos/random?query=${props.bg}&client_id=${
+				import.meta.env.VITE_APP_API_KEY
+			}&orientation=landscape`
+		)
+			.then((response) => {
+				if (!response.ok) throw new Error(response.status);
+				return response.json();
+			})
+			.then((data) => {
+				document.getElementsByClassName(
+					"hungryfac_page"
+				)[0].style.backgroundImage = `url(${data.urls.regular})`;
+			})
+			.catch((error) => console.log(error));
+	}, []);
+
 	return (
 		<div className="hungryfac_page">
 			<div className="column_center ">
-				<img src="/logo.png" className="fortyvh" />
+				<img src="/images/logo.png" className="fortyvh" />
 
 				<form
 					className="column_center "
@@ -129,13 +129,21 @@ function HungryFAC(props) {
 				</form>
 				<div className="members flexwrap">
 					<div className="oli">
-						<img className="memberImage" src="/oliFace.png" onClick={feedOli} />
+						<img
+							className="memberImage"
+							src="/images/oliFace.png"
+							onClick={feedOli}
+						/>
 						<div>
 							<ProgressBar percentage={oliHealth} />
 						</div>
 					</div>
 					<div className="dan">
-						<img className="memberImage" src="/danFace.png" onClick={feedDan} />
+						<img
+							className="memberImage"
+							src="/images/danFace.png"
+							onClick={feedDan}
+						/>
 						<div>
 							<ProgressBar percentage={danHealth} />
 						</div>
@@ -143,7 +151,7 @@ function HungryFAC(props) {
 					<div className="yvonne">
 						<img
 							className="memberImage"
-							src="/yvonne.png"
+							src="/images/yvonne.png"
 							onClick={feedYvonne}
 						/>
 						<div>
@@ -153,7 +161,7 @@ function HungryFAC(props) {
 					<div className="gregor">
 						<img
 							className="memberImage"
-							src="/gregor.png"
+							src="/images/gregor.png"
 							onClick={feedGregor}
 						/>
 						<div>
@@ -163,7 +171,7 @@ function HungryFAC(props) {
 					<div className="oliver">
 						<img
 							className="memberImage"
-							src="/oliverFace.png"
+							src="/images/oliverFace.png"
 							onClick={feedOliver}
 						/>
 						<div>
