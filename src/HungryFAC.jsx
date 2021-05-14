@@ -20,7 +20,7 @@ function HungryFAC(props) {
 		setOliverHealth(stopLosing(oliverHealth, 0.2));
 		setDanHealth(stopLosing(danHealth, 5));
 		setGregorHealth(stopLosing(gregorHealth, 1));
-	}, 500);
+	}, 1000);
 
 	secondCount = setTimeout(() => {
 		setCount(count + 1);
@@ -81,10 +81,30 @@ function HungryFAC(props) {
 		return <div className="filler" style={{ width: `${props.percentage}%` }} />;
 	};
 
+	function feedOli() {
+		return setOliHealth(oliHealth + foodHealth);
+	}
+
+	function feedYvonne() {
+		return setYvonneHealth(yvonneHealth + foodHealth);
+	}
+
+	function feedDan() {
+		return setDanHealth(danHealth + foodHealth);
+	}
+
+	function feedOliver() {
+		return setOliverHealth(oliverHealth + foodHealth);
+	}
+
+	function feedGregor() {
+		return setGregorHealth(gregorHealth + foodHealth);
+	}
+
 	return (
 		<div className="hungryfac_page">
 			<div className="column_center ">
-				<img src="/logo.png" class="fortyvh" />
+				<img src="/logo.png" className="fortyvh" />
 
 				<form
 					className="column_center "
@@ -109,31 +129,43 @@ function HungryFAC(props) {
 				</form>
 				<div className="members flexwrap">
 					<div className="oli">
-						<img className="memberImage" src="/oliFace.png" />
+						<img className="memberImage" src="/oliFace.png" onClick={feedOli} />
 						<div>
 							<ProgressBar percentage={oliHealth} />
 						</div>
 					</div>
 					<div className="dan">
-						<img className="memberImage" src="/danFace.png" />
+						<img className="memberImage" src="/danFace.png" onClick={feedDan} />
 						<div>
 							<ProgressBar percentage={danHealth} />
 						</div>
 					</div>
 					<div className="yvonne">
-						<img className="memberImage" src="/yvonne.png" />
+						<img
+							className="memberImage"
+							src="/yvonne.png"
+							onClick={feedYvonne}
+						/>
 						<div>
 							<ProgressBar percentage={yvonneHealth} />
 						</div>
 					</div>
 					<div className="gregor">
-						<img className="memberImage" src="/gregor.png" />
+						<img
+							className="memberImage"
+							src="/gregor.png"
+							onClick={feedGregor}
+						/>
 						<div>
 							<ProgressBar percentage={gregorHealth} />
 						</div>
 					</div>
 					<div className="oliver">
-						<img className="memberImage" src="/oliverFace.png" />
+						<img
+							className="memberImage"
+							src="/oliverFace.png"
+							onClick={feedOliver}
+						/>
 						<div>
 							<ProgressBar percentage={oliverHealth} />
 						</div>

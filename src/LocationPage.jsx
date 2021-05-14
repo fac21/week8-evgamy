@@ -6,7 +6,7 @@ import HungryFAC from "./HungryFAC";
 function LocationPage({ setSubmit, setBg }) {
 	return (
 		<div className="location_page column_center">
-			<h1>Where are the FAC cats today?</h1>
+			<h1>Where is FAC today?</h1>
 			<form
 				className="column_center"
 				onSubmit={(event) => {
