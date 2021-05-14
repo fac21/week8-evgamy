@@ -26,6 +26,7 @@
 
 .flexwrap {
 	display: flex;
+	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
@@ -35,7 +36,7 @@
 }
 
 .memberImage {
-	height: 20vh;
+	height: 24vh;
 	width: auto;
 }
 

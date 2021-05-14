@@ -10,26 +10,45 @@ function HungryFAC(props) {
 	const [danHealth, setDanHealth] = React.useState(100);
 	const [gregorHealth, setGregorHealth] = React.useState(100);
 	const [count, setCount] = React.useState(0);
+	const [foodHealth, setFoodHealth] = React.useState(0);
+	let losingHealth;
+	let secondCount;
 
-	setTimeout(() => {
+	losingHealth = setTimeout(() => {
 		setOliHealth(stopLosing(oliHealth, 3));
 		setYvonneHealth(stopLosing(yvonneHealth, 2));
 		setOliverHealth(stopLosing(oliverHealth, 0.2));
 		setDanHealth(stopLosing(danHealth, 5));
 		setGregorHealth(stopLosing(gregorHealth, 1));
-		console.log(oliverHealth, gregorHealth, danHealth);
 	}, 500);
 
+	secondCount = setTimeout(() => {
+		setCount(count + 1);
+	}, 1000);
+
+	if (
+		oliHealth == 0 ||
+		yvonneHealth == 0 ||
+		danHealth == 0 ||
+		oliverHealth == 0 ||
+		gregorHealth == 0
+	) {
+		clearTimeout(losingHealth);
+		clearTimeout(secondCount);
+	}
+
 	function stopLosing(health, loss) {
-		return health <= 0 ? 0 : health - loss;
+		return health - loss <= 0 ? 0 : health - loss;
 	}
 
 	function handleSelect(e) {
 		let selectedFood = [];
 		foods.forEach((food) => {
-			if (food.id === e.target.value) selectedFood.push(food.img_url);
+			if (food.id === e.target.value)
+				selectedFood.push(food.img_url, food.hunger);
 		});
 		setFoodurl(selectedFood[0]);
+		setFoodHealth(selectedFood[1]);
 	}
 
 	React.useEffect(() => {
@@ -120,6 +139,7 @@ function HungryFAC(props) {
 						</div>
 					</div>
 				</div>
+				<p>You've kept FAC alive for {count} seconds!</p>
 			</div>
 		</div>
 	);
